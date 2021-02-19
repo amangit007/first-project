@@ -1,2 +1,2 @@
-# first-project
-web development project
+# Mini weather app
+python tkinter project
