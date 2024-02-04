@@ -12,3 +12,4 @@ jobs:
       - name: Build project
         run: |
           ls
+          pwd
