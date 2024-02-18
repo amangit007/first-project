@@ -1,0 +1,67 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "DH5iQE",
+    "name": "adapt",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "VAEybe"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "MSHa3m"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "prompt": "${TextInput_Prompt_MSHa3m()}",
+          "value": "=turn.activity.value.Name",
+          "property": "dialog.name"
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "UUc9dp"
+          },
+          "assignments": [
+            {
+              "value": "=turn.activity.value.Address",
+              "property": "dialog.address"
+            },
+            {
+              "value": "=turn.activity.value.Weeks",
+              "property": "dialog.weeks"
+            },
+            {
+              "property": "dialog.selectedDate",
+              "value": "=turn.activity.value.selectedDate"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "GFy4JD"
+          },
+          "activity": "${SendActivity_GFy4JD()}"
+        }
+      ]
+    }
+  ],
+  "generator": "adapt.lg",
+  "recognizer": "adapt.lu.qna",
+  "id": "adapt"
+}

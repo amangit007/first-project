@@ -1,0 +1,19 @@
+{
+  "profileName": "killbot",
+  "jobId": "d9669fe2-3be8-4959-a8a3-a5f59bc06db2",
+  "projectId": "24526.776902621616",
+  "time": "2024-02-17T16:58:55.240Z",
+  "log": [
+    "Creating Azure resources...",
+    "Checking the Existence of the Resource Group ...",
+    "Use the Resource Group: bot-serv-westus at westus",
+    "> Creating App Registration ...",
+    "App create failed, retrying ...",
+    "App create failed, retrying ...",
+    "App create failed, retrying ...",
+    "App create failed, retrying ...",
+    "App create failed after 3 retries. Error: Request failed with status code 401",
+    "{\"name\":\"CREATE_APP_REGISTRATION\",\"message\":\"App create failed! Please file an issue on Github.\",\"stack\":\"Error\\n    at new CustomizeError (C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:276418:25)\\n    at createCustomizeError (C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:276423:10)\\n    at BotProjectProvision.createApp (C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:277931:17)\"}",
+    "{\"name\":\"CREATE_APP_REGISTRATION\",\"message\":\"App create failed! Please file an issue on Github.\",\"stack\":\"Error\\n    at new CustomizeError (C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:276418:25)\\n    at createCustomizeError (C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:276423:10)\\n    at BotProjectProvision.createApp (C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:277931:17)\"}. See provision.killbot.log in your bot folder"
+  ]
+}

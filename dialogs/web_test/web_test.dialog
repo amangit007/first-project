@@ -1,0 +1,209 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "z8Idz1",
+    "name": "web_test",
+    "comment": "This dialog is to get data from api"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "vrYseb"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "GW2ls4"
+          },
+          "activity": "${SendActivity_GW2ls4()}"
+        },
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "JQDmmn"
+          },
+          "disabled": true,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "${TextInput_InvalidPrompt_JQDmmn()}",
+          "prompt": "${TextInput_Prompt_JQDmmn()}",
+          "property": "dialog.vrsn",
+          "validations": [
+            "isMatch(string(this.value),\"^\\d+/\\d+$\")"
+          ],
+          "outputFormat": "=string(this.value)",
+          "defaultValue": "7/1"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "ki2U0D"
+          },
+          "activity": "${SendActivity_ki2U0D()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "RSNUsD"
+          },
+          "defaultLocale": "en-us",
+          "disabled": true,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "defaultValueResponse": "",
+          "recognizerOptions": {
+            "recognizeOrdinals": true
+          },
+          "prompt": "${ChoiceInput_Prompt_RSNUsD()}",
+          "style": "heroCard",
+          "choices": [
+            "delivery date ",
+            "due date"
+          ],
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or ",
+            "inlineOr": " or "
+          },
+          "property": "dialog.choice",
+          "outputFormat": "value"
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "c66eIR"
+          },
+          "condition": "dialog.choice",
+          "cases": [
+            {
+              "value": "delivery date",
+              "actions": [
+                {
+                  "$kind": "Microsoft.TextInput",
+                  "$designer": {
+                    "id": "MBv886"
+                  },
+                  "disabled": true,
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": ""
+                }
+              ]
+            },
+            {
+              "value": "due date"
+            }
+          ],
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "h6bT91"
+          },
+          "activity": "${SendActivity_h6bT91()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "SFHAHb"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "unrecognizedPrompt": "${TextInput_UnrecognizedPrompt_SFHAHb()}",
+          "invalidPrompt": "${TextInput_InvalidPrompt_SFHAHb()}",
+          "prompt": "${TextInput_Prompt_SFHAHb()}",
+          "property": "user.zipcode",
+          "outputFormat": "=trim(this.value)"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "LRh6zE"
+          },
+          "method": "GET",
+          "url": "https://api.genderize.io/?name=${user.zipcode}",
+          "resultProperty": "dialog.api_response",
+          "responseType": "json",
+          "contentType": "application/json"
+        },
+        {
+          "$kind": "Microsoft.LogAction",
+          "$designer": {
+            "id": "1q0EdU"
+          },
+          "text": "${LogAction_Text_1q0EdU()}",
+          "label": "this is log",
+          "traceActivity": true
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "GHV3kA"
+          },
+          "activity": "${SendActivity_GHV3kA()}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "b8ToqY"
+          },
+          "activity": "${SendActivity_b8ToqY()}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "hm05LO"
+          },
+          "activity": "${SendActivity_hm05LO()}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "xZmGI3"
+          },
+          "activity": "${SendActivity_xZmGI3()}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "QyOddg"
+          },
+          "activity": "${SendActivity_QyOddg()}"
+        },
+        {
+          "$kind": "Microsoft.DeleteProperty",
+          "$designer": {
+            "id": "N6OT0w"
+          },
+          "property": "user.zipcode"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "szqrFQ"
+          },
+          "activity": "${SendActivity_szqrFQ()}"
+        }
+      ]
+    }
+  ],
+  "generator": "web_test.lg",
+  "recognizer": "web_test.lu.qna",
+  "id": "web_test"
+}

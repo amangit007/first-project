@@ -1,0 +1,91 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "TfrOMm",
+    "name": "general-input",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "uB8aeT"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "sEx9gZ"
+          },
+          "activity": "${SendActivity_sEx9gZ()}"
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "kCjznJ"
+          },
+          "condition": "=dialog.field.type",
+          "cases": [
+            {
+              "value": "date",
+              "actions": [
+                {
+                  "$kind": "Microsoft.NumberInput",
+                  "$designer": {
+                    "id": "eNbbUO"
+                  },
+                  "defaultLocale": "en-us",
+                  "disabled": false,
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "prompt": "${NumberInput_Prompt_eNbbUO()}",
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "defaultValueResponse": "",
+                  "outputFormat": "=this.value",
+                  "property": "dialog.field.value"
+                }
+              ]
+            },
+            {
+              "value": "string",
+              "actions": [
+                {
+                  "$kind": "Microsoft.TextInput",
+                  "$designer": {
+                    "id": "f9YIUe"
+                  },
+                  "disabled": false,
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "prompt": "${TextInput_Prompt_f9YIUe()}",
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "defaultValueResponse": "",
+                  "property": "dialog.field.value",
+                  "outputFormat": "=this.value"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "6DV96G"
+          },
+          "value": "=dialog.field"
+        }
+      ]
+    }
+  ],
+  "generator": "general-input.lg",
+  "recognizer": "general-input.lu.qna",
+  "id": "general-input"
+}

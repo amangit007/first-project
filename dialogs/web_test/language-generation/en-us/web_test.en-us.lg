@@ -1,0 +1,114 @@
+[import](common.lg)
+
+# SendActivity_GW2ls4()
+[Activity
+    Text = ${SendActivity_GW2ls4_text()}
+]
+
+# SendActivity_GW2ls4_text()
+- Let me take you to information house
+# TextInput_Prompt_SFHAHb()
+[Activity
+    Text = ${TextInput_Prompt_SFHAHb_text()}
+]
+
+# TextInput_Prompt_SFHAHb_text()
+- tell a zip code and i will let you know the city
+# TextInput_UnrecognizedPrompt_SFHAHb()
+[Activity
+    Text = ${TextInput_UnrecognizedPrompt_SFHAHb_text()}
+]
+
+# TextInput_UnrecognizedPrompt_SFHAHb_text()
+- i do not undertstood. Please add any other zipcode
+# TextInput_InvalidPrompt_SFHAHb()
+[Activity
+    Text = ${TextInput_InvalidPrompt_SFHAHb_text()}
+]
+
+# TextInput_InvalidPrompt_SFHAHb_text()
+- i do not undertstood. Please add any other zipcode
+# SendActivity_szqrFQ()
+[Activity
+    Text = ${SendActivity_szqrFQ_text()}
+]
+
+# SendActivity_szqrFQ_text()
+- Thank you for using bot 
+# SendActivity_GHV3kA()
+[Activity
+    Text = ${SendActivity_GHV3kA_text()}
+]
+
+# SendActivity_GHV3kA_text()
+- ${dialog.api_response}
+# SendActivity_ki2U0D()
+[Activity
+    Text = ${SendActivity_ki2U0D_text()}
+]
+
+# SendActivity_ki2U0D_text()
+- the version is ${dialog.vrsn}
+# TextInput_Prompt_JQDmmn()
+[Activity
+    Text = ${TextInput_Prompt_JQDmmn_text()}
+]
+
+# TextInput_Prompt_JQDmmn_text()
+- Please enter the version number
+# TextInput_InvalidPrompt_JQDmmn()
+[Activity
+    Text = ${TextInput_InvalidPrompt_JQDmmn_text()}
+]
+
+# TextInput_InvalidPrompt_JQDmmn_text()
+- not a valid string ${isMatch(string(this.value),"^\d+/\d+$")}
+# ChoiceInput_Prompt_RSNUsD()
+[Activity
+    Text = ${ChoiceInput_Prompt_RSNUsD_text()}
+]
+
+# ChoiceInput_Prompt_RSNUsD_text()
+- Please select the field you want to edit
+# SendActivity_h6bT91()
+[Activity
+    Text = ${SendActivity_h6bT91_text()}
+]
+
+# SendActivity_h6bT91_text()
+- you chose ${dialog.choice}
+# LogAction_Text_1q0EdU()
+[Activity
+    Text = ${LogAction_Text_1q0EdU_text()}
+]
+
+# LogAction_Text_1q0EdU_text()
+- ${dialog.api_response}
+# SendActivity_b8ToqY()
+[Activity
+    Text = ${SendActivity_b8ToqY_text()}
+]
+
+# SendActivity_b8ToqY_text()
+- ${turn.dialogEvent}
+# SendActivity_hm05LO()
+[Activity
+    Text = ${SendActivity_hm05LO_text()}
+]
+
+# SendActivity_hm05LO_text()
+- text : ${turn.activity.text}
+# SendActivity_xZmGI3()
+[Activity
+    Text = ${SendActivity_xZmGI3_text()}
+]
+
+# SendActivity_xZmGI3_text()
+- Activity id : ${turn.activity.id}
+# SendActivity_QyOddg()
+[Activity
+    Text = ${SendActivity_QyOddg_text()}
+]
+
+# SendActivity_QyOddg_text()
+- context is ${turn.activity.conversation.id}

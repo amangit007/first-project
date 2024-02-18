@@ -1,0 +1,73 @@
+[import](common.lg)
+
+# SendActivity_0iOppu()
+[Activity
+    Text = ${SendActivity_0iOppu_text()}
+]
+
+# SendActivity_0iOppu_text()
+- hello i am called 
+# ConfirmInput_Prompt_u91vhx()
+[Activity
+    Text = ${ConfirmInput_Prompt_u91vhx_text()}
+]
+
+# ConfirmInput_Prompt_u91vhx_text()
+- are you sure
+# SendActivity_TfNE2v()
+[Activity
+    Text = ${SendActivity_TfNE2v_text()}
+]
+
+# SendActivity_TfNE2v_text()
+- ok look again
+# SendActivity_UDjIFC()
+[Activity
+    Text = ${SendActivity_UDjIFC_text()}
+]
+
+# SendActivity_UDjIFC_text()
+- Thank you
+# TextInput_Prompt_qzshgQ()
+[Activity
+    Text = ${TextInput_Prompt_qzshgQ_text()}
+]
+
+# TextInput_Prompt_qzshgQ_text()
+- enter the value to update
+# SendActivity_zgwNZ0()
+[Activity
+    Text = ${SendActivity_zgwNZ0_text()}
+]
+
+# SendActivity_zgwNZ0_text()
+- final value is ${dialog.arr}
+# SendActivity_elCwGN()
+[Activity
+    Text = ${SendActivity_elCwGN_text()}
+]
+
+# SendActivity_elCwGN_text()
+- ${turn.api_response}
+# SendActivity_1X3Wf1()
+[Activity
+    Attachments = ${json(SendActivity_1X3Wf1_attachment_FOK8Kv())}
+]
+
+# SendActivity_1X3Wf1_attachment_FOK8Kv()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body": [
+        {
+            "type": "Input.ChoiceSet",
+            "id": "myColor",
+            "label": "What color do you want? (isMultiSelect:false, style:compact)",
+            "value": "1",
+            "choices": ${dialog.arr}
+        }
+    ]
+}```

@@ -1,0 +1,32 @@
+[import](common.lg)
+
+# SendActivity_sEx9gZ()
+[Activity
+    Text = ${SendActivity_sEx9gZ_text()}
+]
+
+# SendActivity_sEx9gZ_text()
+- ```the response is ${dialog.field}
+and
+${dialog.field.title}```
+# NumberInput_Prompt_tatwFk()
+[Activity
+    Text = ${NumberInput_Prompt_tatwFk_text()}
+]
+
+# NumberInput_Prompt_tatwFk_text()
+- dialog.field.title
+# NumberInput_Prompt_eNbbUO()
+[Activity
+    Text = ${NumberInput_Prompt_eNbbUO_text()}
+]
+
+# NumberInput_Prompt_eNbbUO_text()
+- ${dialog.field.ask_prompt}
+# TextInput_Prompt_f9YIUe()
+[Activity
+    Text = ${TextInput_Prompt_f9YIUe_text()}
+]
+
+# TextInput_Prompt_f9YIUe_text()
+- ${dialog.field.ask_prompt}

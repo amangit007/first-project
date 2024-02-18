@@ -1,0 +1,470 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "name": "Empty",
+    "description": "",
+    "id": "A79tBe"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnConversationUpdateActivity",
+      "$designer": {
+        "id": "376720",
+        "comment": "This trigger runs when a conversation update activity is sent to the bot. This indicates a user or bot being added or removed from a conversation."
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "518944",
+            "name": "Loop: for each item",
+            "comment": "For each member added to the conversation."
+          },
+          "itemsProperty": "turn.Activity.membersAdded",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "641773",
+                "name": "Branch: if/else",
+                "comment": "Checks that that member added ID does not match the bot ID. This prevents the greeting message from being sent when the bot is added to a conversation."
+              },
+              "condition": "=string(dialog.foreach.value.id) != string(turn.Activity.Recipient.id)",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "859266",
+                    "name": "Send a response"
+                  },
+                  "activity": "${SendActivity_Greeting()}"
+                }
+              ]
+            }
+          ],
+          "value": "dialog.foreach.value"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnUnknownIntent",
+      "$designer": {
+        "id": "mb2n1u",
+        "comment": "This trigger fires when an incoming activity is not handled by any other trigger."
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "kMjqz1",
+            "comment": "It is recommended to show a message to the user when the bot does not know how to handle an incoming activity and provide follow up options or a help message."
+          }
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "sRMobQ",
+        "name": "city"
+      },
+      "intent": "city",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "7rQf3x"
+          },
+          "activityProcessed": true,
+          "dialog": "web_test"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "6XzkIx",
+        "name": "test-adaptive"
+      },
+      "intent": "test-adaptive",
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "RVfm4h"
+          },
+          "activity": "${SendActivity_RVfm4h()}"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "LLgyll"
+          },
+          "activityProcessed": true,
+          "dialog": "custom"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "CcUSvM",
+        "name": "fucnction-calling"
+      },
+      "intent": "fucnction-calling",
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "yD9fLh"
+          },
+          "property": "dialog.update_api_req.update_object[\"Date Document Finalized\"]",
+          "value": "2024-02-29"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "KPB8yZ"
+          },
+          "property": "dialog.update_api_req.update_object[\"Document Version Number\"]",
+          "value": 2.9
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "BqouC7"
+          },
+          "method": "POST",
+          "url": "https://veeva-func.azurewebsites.net/api/retrieve_document_fields?code=eCQk1K8BpHveEsFbDiQqH1lTSSxQMcCUe1kMNElP20KGAzFu3tgRpQ==&document_id=62057",
+          "body": "=dialog.update_api_req",
+          "resultProperty": "dialog.api_response",
+          "contentType": "application/json",
+          "responseType": "json"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "csBIex"
+          },
+          "activity": "${SendActivity_csBIex()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "lLDqoy",
+        "name": "metadata"
+      },
+      "intent": "metadata",
+      "actions": [
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "in50s9"
+          },
+          "url": "https://veeva-func.azurewebsites.net/api/doc_validation?code=OrU-PNZsOEqlnv-scFY4HXa5coMeQlC3hrt2VPCe2ZnUAzFuua5JAw==&document_id=62057",
+          "resultProperty": "dialog.api_response",
+          "contentType": "application/json",
+          "responseType": "json"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "Uvm6yv"
+          },
+          "activity": "${SendActivity_Uvm6yv()}"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "f7rDqC"
+          },
+          "condition": "=startsWith(dialog.api_response.content.response_status,\"success\" )",
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "WPzPLt"
+              },
+              "activity": "${SendActivity_WPzPLt()}"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "Ze0m3S"
+              },
+              "activity": "${SendActivity_Ze0m3S()}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "HWLP3Z",
+        "name": "adaptive-list"
+      },
+      "intent": "adaptive-list",
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "jt3Xne"
+          },
+          "property": "dialog.metajson",
+          "value": [
+            {
+              "title": "Some Date1",
+              "value": "1",
+              "field": [
+                {
+                  "title": "Some Date",
+                  "value": 0,
+                  "ask_prompt": "enter the date",
+                  "api_name": "expiry__c",
+                  "type": "date"
+                }
+              ]
+            },
+            {
+              "title": "Some text1",
+              "value": "2",
+              "field": [
+                {
+                  "title": "Some text",
+                  "value": "",
+                  "ask_prompt": "enter the text information",
+                  "api_name": "text_c",
+                  "type": "string"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "QpOYCR"
+          },
+          "activity": "${SendActivity_QpOYCR()}"
+        },
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "QT08FV"
+          },
+          "disabled": true,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "unrecognizedPrompt": "${TextInput_UnrecognizedPrompt_QT08FV()}",
+          "invalidPrompt": "${TextInput_InvalidPrompt_QT08FV()}",
+          "prompt": "${TextInput_Prompt_QT08FV()}",
+          "property": "dialog.choice",
+          "value": "=turn.activity.value.myColor"
+        },
+        {
+          "$kind": "Microsoft.NumberInput",
+          "$designer": {
+            "id": "m2ZZAo"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "prompt": "${NumberInput_Prompt_m2ZZAo()}",
+          "value": "=int(turn.activity.value.myColor)",
+          "property": "dialog.choice",
+          "outputFormat": "=this.value-1"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "pMIW8D"
+          },
+          "activity": "${SendActivity_pMIW8D()}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "XelqUR"
+          },
+          "activity": "${SendActivity_XelqUR()}"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "RvgclD"
+          },
+          "property": "dialog.temp_arr",
+          "value": [
+            "red",
+            "green",
+            "blue"
+          ]
+        },
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "4NqGsf"
+          },
+          "index": "dialog.foreach1.index",
+          "value": "dialog.foreach1.value",
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "tS05Il"
+              },
+              "activity": "${SendActivity_tS05Il()}"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "EeXLbN"
+              },
+              "activity": "${SendActivity_EeXLbN()}"
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "0k2h62"
+              },
+              "activityProcessed": true,
+              "dialog": "general-input",
+              "resultProperty": "dialog.return_obj",
+              "options": "{\"field\": dialog.foreach1.value}"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "LbPeuW"
+              },
+              "activity": "${SendActivity_LbPeuW()}"
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "2YiDto"
+              },
+              "property": "dialog.updt_api_req.updt_obj[dialog.return_obj.api_name]",
+              "value": "=dialog.return_obj.value"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "y6w5ME"
+              },
+              "activity": "${SendActivity_y6w5ME()}"
+            }
+          ],
+          "itemsProperty": "dialog.metajson[dialog.choice].field"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "J8adgj"
+          },
+          "activity": "${SendActivity_J8adgj()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "QoaJKs",
+        "name": "array-del"
+      },
+      "intent": "array-del",
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "hkVNo3"
+          },
+          "property": "dialog.arr",
+          "value": [
+            {
+              "title": "Red",
+              "value": "1"
+            },
+            {
+              "title": "Green",
+              "value": "2"
+            },
+            {
+              "title": "Blue",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "ovKwHk"
+          },
+          "property": "dialog.idx",
+          "value": 1
+        },
+        {
+          "$kind": "Microsoft.EditArray",
+          "$designer": {
+            "id": "pxaShK"
+          },
+          "changeType": "pop",
+          "itemsProperty": "dialog.arr",
+          "resultProperty": "dialog.arr1",
+          "value": 0
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "HpjZCt"
+          },
+          "activity": "${SendActivity_HpjZCt()}"
+        }
+      ]
+    }
+  ],
+  "generator": "Empty.lg",
+  "id": "Empty",
+  "recognizer": {
+    "$kind": "Microsoft.RegexRecognizer",
+    "intents": [
+      {
+        "intent": "city",
+        "pattern": "city"
+      },
+      {
+        "intent": "test-adaptive",
+        "pattern": "test"
+      },
+      {
+        "intent": "fucnction-calling",
+        "pattern": "function"
+      },
+      {
+        "intent": "metadata",
+        "pattern": "metadata"
+      },
+      {
+        "intent": "adaptive-list",
+        "pattern": "adapt"
+      },
+      {
+        "intent": "array-del",
+        "pattern": "popper"
+      }
+    ]
+  }
+}

@@ -1,0 +1,215 @@
+[import](common.lg)
+
+# SendActivity_Greeting()
+[Activity
+    Text = ${SendActivity_Greeting_text()}
+]
+
+# SendActivity_Greeting_text()
+- Welcome to your Aman first bot
+# SendActivity_RVfm4h()
+[Activity
+    Attachments = ${json(SendActivity_RVfm4h_attachment_W2TWwA())}
+]
+
+# SendActivity_RVfm4h_attachment_W2TWwA()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body": [
+        {
+            "type": "Input.ChoiceSet",
+            "id": "myColor",
+            "label": "What color do you want? (isMultiSelect:false, style:compact)",
+            "value": "1",
+            "choices": [
+                {
+                    "title": "Red",
+                    "value": "1"
+                },
+                {
+                    "title": "Green",
+                    "value": "2"
+                },
+                {
+                    "title": "Blue",
+                    "value": "3"
+                }
+            ]
+        }
+    ]
+}```
+# SendActivity_csBIex()
+[Activity
+    Text = ${SendActivity_csBIex_text()}
+]
+
+# SendActivity_csBIex_text()
+- The response is ${dialog.api_response}
+# SendActivity_Uvm6yv()
+[Activity
+    Text = ${SendActivity_Uvm6yv_text()}
+]
+
+# SendActivity_Uvm6yv_text()
+- Te data is :  ${dialog.api_response}
+# SendActivity_WPzPLt()
+[Activity
+    Text = ${SendActivity_WPzPLt_text()}
+]
+
+# SendActivity_WPzPLt_text()
+- success bhai success
+# SendActivity_Ze0m3S()
+[Activity
+    Text = ${SendActivity_Ze0m3S_text()}
+]
+
+# SendActivity_Ze0m3S_text()
+- fail ho gaya
+# SendActivity_QpOYCR()
+[Activity
+    Text = ${SendActivity_QpOYCR_text()}
+]
+
+# SendActivity_QpOYCR_text()
+- ${dialog.metajson}
+# TextInput_Prompt_QT08FV()
+[Activity
+    Attachments = ${json(TextInput_Prompt_QT08FV_attachment_Mhoytw())}
+]
+
+# TextInput_Prompt_QT08FV_attachment_Mhoytw()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "Input.ChoiceSet",
+            "id": "myColor",
+            "label": "What color do you want? (isMultiSelect:false, style:compact)",
+            "value": "1",
+            "choices": ${dialog.metajson}
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "OK"
+        }
+    ]
+}```
+# TextInput_UnrecognizedPrompt_QT08FV()
+[Activity
+    Text = ${TextInput_UnrecognizedPrompt_QT08FV_text()}
+]
+
+# TextInput_UnrecognizedPrompt_QT08FV_text()
+- not recog
+# TextInput_InvalidPrompt_QT08FV()
+[Activity
+    Text = ${TextInput_InvalidPrompt_QT08FV_text()}
+]
+
+# TextInput_InvalidPrompt_QT08FV_text()
+- invalid
+# SendActivity_XelqUR()
+[Activity
+    Text = ${SendActivity_XelqUR_text()}
+]
+
+# SendActivity_XelqUR_text()
+- ```${dialog.choice}  wit ${dialog.metajson[int(dialog.choice)].field}
+and
+```
+# SendActivity_EeXLbN()
+[Activity
+    Text = ${SendActivity_EeXLbN_text()}
+]
+
+# SendActivity_EeXLbN_text()
+- ```${dialog.foreach1.index}
+and
+${dialog.foreach1.value.title}
+or
+${dialog.metajson[dialog.choice].field[dialog.foreach1.index].type}```
+# SendActivity_tS05Il()
+[Activity
+    Text = ${SendActivity_tS05Il_text()}
+]
+
+# SendActivity_tS05Il_text()
+- loop started
+# NumberInput_Prompt_m2ZZAo()
+[Activity
+    Attachments = ${json(NumberInput_Prompt_m2ZZAo_attachment_ADgHvR())}
+]
+
+# NumberInput_Prompt_m2ZZAo_attachment_ADgHvR()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "Input.ChoiceSet",
+            "id": "myColor",
+            "label": "What color do you want? (isMultiSelect:false, style:compact)",
+            "value": "1",
+            "choices": ${dialog.metajson}
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "OK"
+        }
+    ]
+}```
+# SendActivity_LbPeuW()
+[Activity
+    Text = ${SendActivity_LbPeuW_text()}
+]
+
+# SendActivity_LbPeuW_text()
+- Thē entered value is ${dialog.return_obj.value}
+# SendActivity_y6w5ME()
+[Activity
+    Text = ${SendActivity_y6w5ME_text()}
+]
+
+# SendActivity_y6w5ME_text()
+- reposne: ${dialog.updt_api_req.updt_obj["text_c"]}
+# SendActivity_J8adgj()
+[Activity
+    Text = ${SendActivity_J8adgj_text()}
+]
+
+# SendActivity_J8adgj_text()
+- end array is : ${string(dialog.metajson)}
+# SendActivity_HpjZCt()
+[Activity
+    Text = ${SendActivity_HpjZCt_text()}
+]
+
+# SendActivity_HpjZCt_text()
+- ```the response is ${dialog.arr}
+with
+the response is ${dialog.arr1}```
+# SendActivity_pMIW8D()
+[Activity
+    Text = ${SendActivity_pMIW8D_text()}
+]
+
+# SendActivity_pMIW8D_text()
+- activity value : ${turn}

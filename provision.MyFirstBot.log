@@ -1,0 +1,19 @@
+{
+  "profileName": "MyFirstBot",
+  "jobId": "b8414390-32f2-4389-b43d-a6a1719a4d33",
+  "projectId": "24526.776902621616",
+  "time": "2024-02-17T10:33:56.172Z",
+  "log": [
+    "Creating Azure resources...",
+    "Checking the Existence of the Resource Group ...",
+    "Creating Resource Group ...",
+    "> Creating App Registration ...",
+    "App create failed, retrying ...",
+    "App create failed, retrying ...",
+    "App create failed, retrying ...",
+    "App create failed, retrying ...",
+    "App create failed after 3 retries. Error: Request failed with status code 401",
+    "{\"name\":\"CREATE_APP_REGISTRATION\",\"message\":\"App create failed! Please file an issue on Github.\",\"stack\":\"Error\\n    at new CustomizeError (C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:276418:25)\\n    at createCustomizeError (C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:276423:10)\\n    at BotProjectProvision.createApp (C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:277931:17)\"}",
+    "{\"name\":\"CREATE_APP_REGISTRATION\",\"message\":\"App create failed! Please file an issue on Github.\",\"stack\":\"Error\\n    at new CustomizeError (C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:276418:25)\\n    at createCustomizeError (C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:276423:10)\\n    at BotProjectProvision.createApp (C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:277931:17)\"}. See provision.MyFirstBot.log in your bot folder"
+  ]
+}

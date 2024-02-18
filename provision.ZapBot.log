@@ -1,0 +1,19 @@
+{
+  "profileName": "ZapBot",
+  "jobId": "e3ee0239-68c5-4d54-b1a3-33149b110945",
+  "projectId": "24526.776902621616",
+  "time": "2024-02-17T10:36:12.602Z",
+  "log": [
+    "Creating Azure resources...",
+    "Checking the Existence of the Resource Group ...",
+    "Use the Resource Group: Bot-rg at eastus",
+    "> Creating App Registration ...",
+    "App create failed, retrying ...",
+    "App create failed, retrying ...",
+    "App create failed, retrying ...",
+    "App create failed, retrying ...",
+    "App create failed after 3 retries. Error: Request failed with status code 401",
+    "{\"name\":\"CREATE_APP_REGISTRATION\",\"message\":\"App create failed! Please file an issue on Github.\",\"stack\":\"Error\\n    at new CustomizeError (C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:276418:25)\\n    at createCustomizeError (C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:276423:10)\\n    at BotProjectProvision.createApp (C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:277931:17)\"}",
+    "{\"name\":\"CREATE_APP_REGISTRATION\",\"message\":\"App create failed! Please file an issue on Github.\",\"stack\":\"Error\\n    at new CustomizeError (C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:276418:25)\\n    at createCustomizeError (C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:276423:10)\\n    at BotProjectProvision.createApp (C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Programs\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:277931:17)\"}. See provision.ZapBot.log in your bot folder"
+  ]
+}

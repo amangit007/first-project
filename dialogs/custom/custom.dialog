@@ -1,0 +1,182 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "8egS7t",
+    "name": "custom",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "t8E0uc"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "0iOppu"
+          },
+          "activity": "${SendActivity_0iOppu()}"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "bnrwFp"
+          },
+          "property": "dialog.arr",
+          "value": [
+            "first"
+          ]
+        },
+        {
+          "id": "targetID",
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "qzshgQ"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "prompt": "${TextInput_Prompt_qzshgQ()}",
+          "property": "turn.updateval",
+          "outputFormat": "=this.value"
+        },
+        {
+          "$kind": "Microsoft.EditArray",
+          "$designer": {
+            "id": "N2QSuA"
+          },
+          "changeType": "push",
+          "itemsProperty": "dialog.arr",
+          "value": "${turn.updateval}"
+        },
+        {
+          "$kind": "Microsoft.ConfirmInput",
+          "$designer": {
+            "id": "u91vhx"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${ConfirmInput_Prompt_u91vhx()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or ",
+            "inlineOr": " or "
+          },
+          "property": "dialog.kumi",
+          "outputFormat": "=this.value"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "BIZADU"
+          },
+          "condition": "=dialog.kumi==true",
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "TfNE2v"
+              },
+              "activity": "${SendActivity_TfNE2v()}"
+            },
+            {
+              "$kind": "Microsoft.DeleteProperty",
+              "$designer": {
+                "id": "8Jxl1I"
+              },
+              "property": "dialog.kumi"
+            },
+            {
+              "$kind": "Microsoft.GotoAction",
+              "$designer": {
+                "id": "uFOn5P"
+              },
+              "actionId": "targetID"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "UDjIFC"
+              },
+              "activity": "${SendActivity_UDjIFC()}"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "zgwNZ0"
+              },
+              "activity": "${SendActivity_zgwNZ0()}"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "1X3Wf1"
+          },
+          "activity": "${SendActivity_1X3Wf1()}"
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "Ku89TI"
+          },
+          "assignments": [
+            {
+              "property": "dialog.update_object.arr",
+              "value": "=dialog.arr"
+            },
+            {
+              "property": "dialog.update_object.due_date",
+              "value": "some_due_date"
+            },
+            {
+              "property": "dialog.update_object.delivery_date",
+              "value": "some_delivery_date"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "4A4f5j"
+          },
+          "method": "POST",
+          "url": "http://127.0.0.1:5000/update_data",
+          "body": "=dialog.update_object",
+          "resultProperty": "turn.api_response",
+          "responseType": "json",
+          "contentType": "application/json"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "elCwGN"
+          },
+          "activity": "${SendActivity_elCwGN()}"
+        }
+      ]
+    }
+  ],
+  "generator": "custom.lg",
+  "recognizer": "custom.lu.qna",
+  "id": "custom"
+}
