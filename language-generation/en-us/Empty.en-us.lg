@@ -213,3 +213,38 @@ the response is ${dialog.arr1}```
 
 # SendActivity_pMIW8D_text()
 - activity value : ${turn}
+# SendActivity_ubI6QW()
+[Activity
+    Text = ${SendActivity_ubI6QW_text()}
+]
+
+# SendActivity_ubI6QW_text()
+- first turn data is : ${turn}
+# SendActivity_phI2zz()
+[Activity
+    Text = ${SendActivity_phI2zz_text()}
+]
+
+# SendActivity_phI2zz_text()
+- ${turn}
+# SendActivity_f3d23N()
+[Activity
+    Text = ${SendActivity_f3d23N_text()}
+]
+
+# SendActivity_f3d23N_text()
+- this is array deletion
+# LogAction_Text_qjyebT()
+[Activity
+    Text = ${LogAction_Text_qjyebT_text()}
+]
+
+# LogAction_Text_qjyebT_text()
+- the debugging data is ${dialog.metajson}
+# SendActivity_clz1zb()
+[Activity
+    Text = ${SendActivity_clz1zb_text()}
+]
+
+# SendActivity_clz1zb_text()
+- this is custom activity

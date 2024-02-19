@@ -1,0 +1,106 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "BGjg5x",
+    "name": "lemond",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "fItYv6"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "mPMhVV"
+          },
+          "activity": "${SendActivity_mPMhVV()}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "2NELC1"
+          },
+          "activity": "${SendActivity_2NELC1()}"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "guKgJL"
+          },
+          "property": "dialog.tracedata",
+          "value": [
+            {
+              "title": "Some Date1",
+              "value": "1",
+              "field": [
+                {
+                  "title": "Some Date",
+                  "value": 0,
+                  "ask_prompt": "enter the date",
+                  "api_name": "expiry__c",
+                  "type": "date"
+                }
+              ]
+            },
+            {
+              "title": "Some text1",
+              "value": "2",
+              "field": [
+                {
+                  "title": "Some text",
+                  "value": "",
+                  "ask_prompt": "enter the text information",
+                  "api_name": "text_c",
+                  "type": "string"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.TraceActivity",
+          "$designer": {
+            "id": "jSZ9L3"
+          },
+          "name": "TraceDataName",
+          "label": "TraceDateLabel",
+          "value": "=dialog.tracedata"
+        },
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "9bbjlU"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "prompt": "${TextInput_Prompt_9bbjlU()}",
+          "property": "dialog.multiselect",
+          "value": "=turn.activity.value.myMultiColor"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "N55iwh"
+          },
+          "activity": "${SendActivity_N55iwh()}"
+        }
+      ]
+    }
+  ],
+  "generator": "lemond.lg",
+  "recognizer": "lemond.lu.qna",
+  "id": "lemond"
+}

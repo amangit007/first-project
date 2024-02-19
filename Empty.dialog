@@ -36,6 +36,13 @@
                 {
                   "$kind": "Microsoft.SendActivity",
                   "$designer": {
+                    "id": "ubI6QW"
+                  },
+                  "activity": "${SendActivity_ubI6QW()}"
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
                     "id": "859266",
                     "name": "Send a response"
                   },
@@ -248,6 +255,24 @@
           ]
         },
         {
+          "$kind": "Microsoft.LogAction",
+          "$designer": {
+            "id": "qjyebT"
+          },
+          "text": "${LogAction_Text_qjyebT()}",
+          "label": "Debugger",
+          "traceActivity": true
+        },
+        {
+          "$kind": "Microsoft.TraceActivity",
+          "$designer": {
+            "id": "FjN1OY"
+          },
+          "name": "Mytracename",
+          "label": "mytracelabel",
+          "value": "=dialog.metajson"
+        },
+        {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
             "id": "QpOYCR"
@@ -388,6 +413,13 @@
       "intent": "array-del",
       "actions": [
         {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "f3d23N"
+          },
+          "activity": "${SendActivity_f3d23N()}"
+        },
+        {
           "$kind": "Microsoft.SetProperty",
           "$designer": {
             "id": "hkVNo3"
@@ -434,6 +466,56 @@
           "activity": "${SendActivity_HpjZCt()}"
         }
       ]
+    },
+    {
+      "$kind": "Microsoft.OnEventActivity",
+      "$designer": {
+        "id": "X5LX4G",
+        "name": "Event received (Event activity)"
+      },
+      "condition": "=turn.activity.name=='loginevent'",
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "phI2zz"
+          },
+          "activity": "${SendActivity_phI2zz()}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "clz1zb"
+          },
+          "activity": "${SendActivity_clz1zb()}"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "0GXuVX"
+          },
+          "activityProcessed": true,
+          "dialog": "lemond"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "RE2Jm3",
+        "name": "lemon"
+      },
+      "intent": "lemon",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "F96cb7"
+          },
+          "activityProcessed": true,
+          "dialog": "lemond"
+        }
+      ]
     }
   ],
   "generator": "Empty.lg",
@@ -464,6 +546,10 @@
       {
         "intent": "array-del",
         "pattern": "popper"
+      },
+      {
+        "intent": "lemon",
+        "pattern": "lemon"
       }
     ]
   }

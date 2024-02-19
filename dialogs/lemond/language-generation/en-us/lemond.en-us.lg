@@ -1,0 +1,67 @@
+[import](common.lg)
+
+# SendActivity_mPMhVV()
+[Activity
+    Text = ${SendActivity_mPMhVV_text()}
+]
+
+# SendActivity_mPMhVV_text()
+- The turn data is ${turn}
+# SendActivity_2NELC1()
+[Activity
+    Text = ${SendActivity_2NELC1_text()}
+]
+
+# SendActivity_2NELC1_text()
+- You are in lemond
+# TextInput_Prompt_9bbjlU()
+[Activity
+    Attachments = ${json(TextInput_Prompt_9bbjlU_attachment_K3d4D9())}
+]
+
+# TextInput_Prompt_9bbjlU_attachment_K3d4D9()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "Input.ChoiceSet",
+            "id": "myMultiColor",
+            "label": "What color do you want? (isMultiSelect:false, style:compact)",
+            "value": "1",
+            "choices": [
+                {
+                    "title": "Red",
+                    "value": "1"
+                },
+                {
+                    "title": "Green",
+                    "value": "2"
+                },
+                {
+                    "title": "Blue",
+                    "value": "3"
+                }
+            ],
+            "isMultiSelect": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "OK"
+        }
+    ]
+}```
+# SendActivity_N55iwh()
+[Activity
+    Text = ${SendActivity_N55iwh_text()}
+]
+
+# SendActivity_N55iwh_text()
+- ```the selected data=
+${split(dialog.multiselect, ",")}
+```
