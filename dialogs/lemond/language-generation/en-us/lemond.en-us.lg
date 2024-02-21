@@ -65,3 +65,49 @@
 - ```the selected data=
 ${split(dialog.multiselect, ",")}
 ```
+# TextInput_Prompt_HGmL7M()
+[Activity
+    Attachments = ${json(TextInput_Prompt_HGmL7M_attachment_guphNT())}
+]
+
+# TextInput_Prompt_HGmL7M_attachment_guphNT()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "Multiline text input"
+        },
+        {
+            "type": "Input.Text",
+            "id": "prefilledInputId",
+            "placeholder": "enter comment",
+            "value":"${dialog.texxt.sheen}"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "OK",
+            "style": "positive"
+        }
+    ]
+}```
+# SendActivity_cdHWrr()
+[Activity
+    Text = ${SendActivity_cdHWrr_text()}
+]
+
+# SendActivity_cdHWrr_text()
+- ${dialog.texxt.sheen}
+# SendActivity_MnuF2Y()
+[Activity
+    Text = ${SendActivity_MnuF2Y_text()}
+]
+
+# SendActivity_MnuF2Y_text()
+- ${dialog.demon}

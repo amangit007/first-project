@@ -175,7 +175,9 @@
           "url": "https://veeva-func.azurewebsites.net/api/doc_validation?code=OrU-PNZsOEqlnv-scFY4HXa5coMeQlC3hrt2VPCe2ZnUAzFuua5JAw==&document_id=62057",
           "resultProperty": "dialog.api_response",
           "contentType": "application/json",
-          "responseType": "json"
+          "responseType": "json",
+          "body": "=dialog.payload",
+          "method": "POST"
         },
         {
           "$kind": "Microsoft.SendActivity",
@@ -368,7 +370,7 @@
               "activityProcessed": true,
               "dialog": "general-input",
               "resultProperty": "dialog.return_obj",
-              "options": "{\"field\": dialog.foreach1.value}"
+              "options": {}
             },
             {
               "$kind": "Microsoft.SendActivity",

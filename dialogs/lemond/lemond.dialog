@@ -24,11 +24,73 @@
           "activity": "${SendActivity_mPMhVV()}"
         },
         {
+          "$kind": "Microsoft.TelemetryTrackEventAction",
+          "$designer": {
+            "id": "632f0V"
+          },
+          "properties": {
+            "first_turn_value": "=turn"
+          },
+          "eventName": "ZAMEVENT"
+        },
+        {
           "$kind": "Microsoft.SendActivity",
           "$designer": {
             "id": "2NELC1"
           },
           "activity": "${SendActivity_2NELC1()}"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "HvPYrI"
+          },
+          "property": "dialog.dates",
+          "value": {
+            "valer": "2024-07-07"
+          },
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "RJje2P"
+          },
+          "property": "dialog.texxt",
+          "value": {
+            "sheen": "Enter the date value"
+          },
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "cdHWrr"
+          },
+          "activity": "${SendActivity_cdHWrr()}"
+        },
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "HGmL7M"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "prompt": "${TextInput_Prompt_HGmL7M()}",
+          "value": "=turn.activity.value.prefilledInputId",
+          "property": "dialog.demon"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "MnuF2Y"
+          },
+          "activity": "${SendActivity_MnuF2Y()}"
         },
         {
           "$kind": "Microsoft.SetProperty",
